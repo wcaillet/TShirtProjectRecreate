@@ -1,0 +1,395 @@
+/* --------- General Styles --------- */
+
+* {
+	box-sizing: border-box;
+	font-family: Arial, sans-serif;
+}
+
+/* Global continer */
+
+#container {
+	margin: auto;
+	max-width: 90%;
+}
+
+.align-children {
+	font-size: 0;
+}
+
+.align-children > * {
+	display: inline-block;
+	vertical-align: top;
+	font-size: medium;
+}
+
+/* --------- Shirt Container --------- */
+
+.shirtContainer {
+	padding: 20px;
+}
+
+/* --------- Shirt 1, 2, and 3, containers --------- */
+#shirtBlue, #shirtPink, #shirtOrange {
+	position: relative;
+	border: 2px solid #2981ba;
+	perspective: 800px;
+	-webkit-perspective: 800px;
+	-moz-perspective: 800px;
+}
+
+/* ----------- Rotate checkbox ---------- */
+
+.rotateBox {
+	border-left: 2px solid #2981ba;
+	border-bottom: 2px solid #2981ba;
+	position: absolute;
+	right: 0px;
+	vertical-align: top;
+	font-size: x-large;
+	text-align: center;
+	padding-top: 3px;
+	width: 40px;
+	height: 40px;
+	background: #fff;
+	color: #2981ba;
+}
+
+.rotateBox:hover {
+	background: #2981ba;
+	color: #fff;
+	-webkit-transition: 0.3s all ease;
+	-moz-transition: 0.3s all ease;
+	transition: 0.3s all ease;
+}
+
+.rotateBox i {
+	font-size: xx-large;
+}
+
+/* ---------- Image of shirt ------------- */
+.shirtImage {
+	margin-top: 40px;
+	transition: 0.5s transform ease;
+	-webkit-transition: 0.5s transform ease;
+	-moz-transition: 0.5s transform ease;
+ 	transform-style: preserve-3d;
+ 	-webkit-transform-style: preserve-3d;
+ 	-moz-transform-style: preserve-3d;
+}
+
+img {
+	width: 100%;
+	display: block;
+	margin: auto;
+}
+
+#blueFront, #pinkFront, #orangeFront {
+	position: absolute;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+}
+
+#blueBack, #pinkBack, #orangeBack {
+	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg); 
+	-moz-transform: rotateY(180deg);
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;  
+}
+
+input[type="checkbox"]:checked ~ .shirtImage {
+  	transform: rotateY(180deg);
+  	-webkit-transform: rotateY(180deg);
+  	-moz-transform: rotateY(180deg);
+}
+
+input[type="checkbox"]{
+	position: absolute;
+	right: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* ----------- Row of buttons ------------ */
+
+.row.icons {
+	display: flex;
+}
+
+.icons > div {
+	flex: 1;
+	border-top: 2px solid #2981ba;
+	height: 70px;
+	font-size: x-large;
+	text-align: center;
+	padding-top: 20px;
+	color: #2981ba;
+}
+
+.arrows, .heart, .size, .swatch {
+	border-right: 2px solid #2981ba;
+	-webkit-transition: 0.3s all ease;
+	-moz-transition: 0.3s all ease;
+	transition: 0.3s all ease;
+}
+
+.arrows:hover {
+	background: #2981ba;
+	color: white;
+}
+
+.heart:hover {
+	background: #2981ba;
+	color: red;
+	-webkit-transition: 0.3s all ease;
+	-moz-transition: 0.3s all ease;
+	transition: 0.3s all ease;
+}
+
+/* ------------ Sizes select ----------- */
+
+.size {
+	position: relative;
+	cursor: pointer;
+	-webkit-transition: 0.3s all ease;
+	-moz-transition: 0.3s all ease;
+	transition: 0.3s all ease;
+}
+
+.size:hover {
+	background: #2981ba;
+	color: white;
+}
+
+.size:hover > .sizesSelect {
+	bottom: 100%;
+	opacity:1;
+}
+
+.sizesSelect {
+	position: absolute;
+	width: 100px;
+	padding: 15px;
+	background: white;
+	border: 2px solid #2981ba;
+	color: #2981ba;
+	cursor: pointer;
+	bottom: 125%;
+	opacity: 0;
+	-webkit-transition: visibility 0s 0.3s, opacity 0.3s, bottom 0.3s;
+	-moz-transition: visibility 0s 0.3s, opacity 0.3s, bottom 0.3s;
+	transition: visibility 0s 0.3s, opacity 0.3s, bottom 0.3s;/* Added */
+	right: 50%;
+	transform: translateX(50%);
+}
+
+.sizesSelect span {
+	margin: 4px auto;
+	display: block;
+	background-position-x: 50%;
+	background-position-y: 50%;
+	background-size: 100%;
+	background-repeat-x: no-repeat;
+	background-repeat-y: no-repeat;
+	background-attachment: initial;
+	background-origin: initial;
+	background-clip: initial;
+	background-color: initial;
+	font-size: 12px;
+}
+
+.sizesSelect span:hover {
+	color: #e67e22;
+	-webkit-transition: 0.3s all ease;
+	-moz-transition: 0.3s all ease;
+	transition: 0.3s all ease;
+}
+
+.sizesSelect span[data-size="XL"] {
+	width: 44px;
+	height: 44px;
+	line-height: 44px;
+} 
+
+.sizesSelect span[data-size="L"] {
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+} 
+
+.sizesSelect span[data-size="M"] {
+	width: 34px;
+	height: 34px;
+	line-height: 34px;
+} 
+
+.sizesSelect span[data-size="S"] {
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+} 
+
+.arrow-down {
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	right: 50%;
+	bottom: -4%;
+	transform: translateX(50%) rotate(45deg);
+	-webkit-transform: translateX(50%) rotate(45deg);
+	-moz-transform: translateX(50%) rotate(45deg);
+	border-bottom: 2px solid #2981ba;
+	border-right: 2px solid #2981ba;
+	border-top: 2px solid #fff;
+	border-left: 2px solid #fff;
+	background: #fff;
+}
+
+/* ----------- Swatches select ------------ */
+
+.swatch {
+	position: relative;
+}
+
+.swatch:hover {
+	background: #2981ba;
+	color: white;
+	-webkit-transition: 0.3s all ease;
+	-moz-transition: 0.3s all ease;
+	transition: 0.3s all ease;
+}
+
+.swatch:hover > .swatchesSelect {
+	bottom: 100%;
+	opacity:1;
+}
+
+.swatchesSelect {
+	position: absolute;
+	width: 75px;
+	height: 75px;
+	padding: 8px 0;
+	bottom: 125%;
+	border: 2px solid #2981ba;
+	cursor: pointer;
+	background: #fff;
+	opacity: 0;
+	right: 50%;
+	transform: translateX(50%);
+	-webkit-transition: visibility 0s 0.3s, opacity 0.3s, bottom 0.3s;
+	-moz-transition: visibility 0s 0.3s, opacity 0.3s, bottom 0.3s;
+	transition: visibility 0s 0.3s, opacity 0.3s, bottom 0.3s;
+}
+
+.swatchesSelect i {
+	display: inline-block;
+	color: blue;
+}
+
+i.fa.fa-square.red-swatch {
+	color: #e74c3c;
+	-webkit-transition: 0.3s all ease;
+	-moz-transition: 0.3s all ease;
+	transition: 0.3s all ease;
+}
+
+i.fa.fa-square.red-swatch:hover {
+	font-size: xx-large;
+}
+
+i.fa.fa-square.green-swatch {
+	color: #2ecc71;
+	-webkit-transition: 0.3s all ease;
+	-moz-transition: 0.3s all ease;
+	transition: 0.3s all ease;
+}
+
+i.fa.fa-square.green-swatch:hover {
+	font-size: xx-large;
+}
+
+i.fa.fa-square.orange-swatch {
+	color: #e67e22;
+	-webkit-transition: 0.3s all ease;
+	-moz-transition: 0.3s all ease;
+	transition: 0.3s all ease;
+}
+
+i.fa.fa-square.orange-swatch:hover {
+	font-size: xx-large;
+}
+
+i.fa.fa-square.yellow-swatch {
+	color: #f1c40f;
+	-webkit-transition: 0.3s all ease;
+	-moz-transition: 0.3s all ease;
+	transition: 0.3s all ease;
+}
+
+i.fa.fa-square.yellow-swatch:hover {
+	font-size: xx-large;
+}
+
+.arrow-down-swatch {
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	right: 50%;
+	bottom: -11%;
+	transform: translateX(50%) rotate(45deg);
+	-webkit-transform: translateX(50%) rotate(45deg);
+	-moz-transform: translateX(50%) rotate(45deg);
+	border-bottom: 2px solid #2981ba;
+	border-right: 2px solid #2981ba;
+	border-top: 2px solid #fff;
+	border-left: 2px solid #fff;
+	background: #fff;
+}
+
+.cart:hover {
+	background: #2981ba;
+	color: white;
+	-webkit-transition: 0.3s all ease;
+	-moz-transition: 0.3s all ease;
+	transition: 0.3s all ease;
+}
+
+/* ---------- Shirt Name & Price ------------ */
+
+.shirtName {
+	color: #2981ba;
+	display: inline-block;
+	font-size: 20px;
+	float: left;
+}
+
+.shirtPrice {
+	float: right;
+	color: #2981ba;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+/* --------- Mobile Responsive Styles ------------ */
+
+@media (min-width: 700px) {
+	.shirtContainer {
+		width: 75%;
+	}
+	#container {
+		margin: auto;
+		text-align: center;
+	}
+}
+
+@media (min-width: 992px) {
+	.shirtContainer {
+		width: 33.33%;
+	}
+	#container {
+		margin: auto;
+	}
+}
